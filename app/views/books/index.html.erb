@@ -3,10 +3,13 @@
 <% @books.each do |book| %>
 
   <div>
-    <%= image_tag book.get_image %>
-    <p><%= image_tag '/app/assets/no-image.jpg' %></p>
     
-    <p>Title：<%= book.title %></p>
+    <p><%= image_tag book.get_image %></p>
+    
+    <%= link_to book_path(book.id) do %>
+      <p>Title：<%= book.title %></p>
+    <% end %>
+    
     <p>Opinion：<%= book.body %></p>
     
   </div>
