@@ -1,24 +1,20 @@
 
-<!--ユーザー詳細-->
-<h1>User info</h1>
-<div>
-  <%= image_tag @user.get_profile_image(80,80) %>
-  <p>name<%= @user.name %></p>
-  <p>introduction<%= @user.introduction %></p>
-  
-  <% if @user == current_user %>
-    <p><%= link_to "edit", edit_user_path(@user) %></p>
-  <% end %>
-</div>
+<!--カレントユーザー　詳細-->
+<%= render 'users/list', users: @users %>
+
+<!--Book　新規投稿-->
+<%= render 'books/post', books: @books %>
 
 
+<!--User　一覧-->
 <h1>Users</h1>
-<!--ユーザー一覧-->
+
 <% @books.each do |book| %>
 <div>
   <p>image <%= image_tag book.user.get_profile_image(80,80) %></p>
   <p>name <%= book.title %></p>
- 
+  
+<!--User 詳細-->
   <td><%= link_to "Show", new_book_path(current_user.id) %></td>
   
 </div>

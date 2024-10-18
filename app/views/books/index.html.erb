@@ -1,10 +1,19 @@
+
+<!--カレントユーザー　詳細-->
+
+
+<!--Book　新規投稿-->
+<%= render 'books/post', books: @books %>
+
+
+<!--Book　一覧-->
 <h1>Books</h1>
 
 <% @books.each do |book| %>
 
   <div>
     
-    <p><%= image_tag book.get_image %></p>
+    <p><%= image_tag book.user.get_profile_image(80,80) %></p>
     
     <%= link_to book_path(book.id) do %>
       <p>Title：<%= book.title %></p>

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @books = @user.books
+    @books = Book.all
   end
   
   def edit
@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path
+  end
+  
+  def book
+    return Book.find(self.book_id)
   end
   
   private
