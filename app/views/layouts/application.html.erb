@@ -1,54 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">>
   <head>
-    <title>Bookers2</title>
+    <title>Bookers2Ver2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    <script src="https://kit.fontawesome.com/621a758cb6.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    
-    <header>
-      <h4>Bookers</h4>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to 'Home', new_book_path %>
-        </li>
-        <li>
-          <%= link_to 'User', user_path(current_user.id) %>
-        </li>
-        <li>
-          <%= link_to 'Book', books_path %>
-        </li>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to 'Home', '/' %>
-        </li>
-        <li>
-          <%= link_to 'About', about_path %>
-        </li>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-      <% end %>
+  <body class="d-flex flex-column vh-100">
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <a class="navbar-brand" href="#">Bookers</a>
+        <div class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Home', user_path(current_user.id),class: 'nav-link text-white'  %>
+              </li>
+              <li class="nav-item">
+               <%= link_to 'User', users_path,class: 'nav-link text-white' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Book', books_path,class: 'nav-link text-white' %>
+              </li>
+              <li class="nav-item">
+                 <%= link_to "Log out", destroy_user_session_path, method: :delete,class: 'nav-link text-white' %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+               <%= link_to 'Home', '/',class: 'nav-link text-white' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'About', about_path,class: 'nav-link text-white' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign up", new_user_registration_path,class: 'nav-link text-white' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Log in", new_user_session_path,class: 'nav-link text-white' %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
     
-    <%= yield %>
+    <main class="mb-auto">
+      <%= yield %>
+    </main>
     
-    <footer>
-      CopyRight Infratop.inc
+    <footer class="bg-white">
+      <div class='container mt-5'>
+        <div class='row'>
+          <div class='mx-auto text-brak'>
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
     </footer>
-    
-    
+        
   </body>
 </html>

@@ -1,7 +1,20 @@
 class UsersController < ApplicationController
   
+  def create
+    @user = User.new(user_params)
+    @user.user_id = current_user.id
+    @user.save
+    redirect_to user_path
+  end
+  
+  
   def show
     @user = User.find(params[:id])
+    @books = Book.all
+  end
+  
+  def index
+    @user = User.all
     @books = Book.all
   end
   
@@ -15,9 +28,6 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
   
-  def book
-    return Book.find(self.book_id)
-  end
   
   private
 

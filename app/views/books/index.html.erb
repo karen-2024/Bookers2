@@ -1,25 +1,45 @@
 
-<!--カレントユーザー　詳細-->
+<div class="container">
+  <div class="row">
 
-
-<!--Book　新規投稿-->
-<%= render 'books/post', books: @books %>
-
-
-<!--Book　一覧-->
-<h1>Books</h1>
-
-<% @books.each do |book| %>
-
-  <div>
+    <div class="col-lg-3">
+      <!--カレントユーザー　詳細-->
     
-    <p><%= image_tag book.user.get_profile_image(80,80) %></p>
-    
-    <%= link_to book_path(book.id) do %>
-      <p>Title：<%= book.title %></p>
-    <% end %>
-    
-    <p>Opinion：<%= book.body %></p>
-    
+      
+      <!--Book　新規投稿-->
+      <%= render 'books/post', book: Book.new %>
+    </div>
+
+
+    <div class="col-lg-8">
+      <!--Book　一覧-->
+      <h1>Books</h1>
+        
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="1"></th>
+            <th><strong>Title</strong></th>
+            <th><strong>Opinion</strong></th>
+          </tr>
+        </thead>
+          
+        <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td><%= image_tag book.user.get_profile_image(80,80) %></td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <p><%= book.title %></p>
+                <% end %>
+              </td>
+              <td><%= book.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+        
+      </table>
+    </div>
+      
   </div>
-<% end %>
+</div>
