@@ -27,29 +27,29 @@
           <ul class="navbar-nav">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to 'Home', user_path(current_user.id),class: 'nav-link text-white'  %>
+                <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-white'  %>
               </li>
               <li class="nav-item">
-               <%= link_to 'User', users_path,class: 'nav-link text-white' %>
+                <%= link_to 'User', users_path, class: 'nav-link text-white' %>
               </li>
               <li class="nav-item">
-                <%= link_to 'Book', books_path,class: 'nav-link text-white' %>
+                <%= link_to 'Book', books_path, class: 'nav-link text-white' %>
               </li>
               <li class="nav-item">
-                 <%= link_to "Log out", destroy_user_session_path, method: :delete,class: 'nav-link text-white' %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
               </li>
             <% else %>
               <li class="nav-item">
-               <%= link_to 'Home', '/',class: 'nav-link text-white' %>
+                <%= link_to 'Home', '/', class: 'nav-link text-white' %>
               </li>
               <li class="nav-item">
-                <%= link_to 'About', about_path,class: 'nav-link text-white' %>
+                <%= link_to 'About', about_path, class: 'nav-link text-white' %>
               </li>
               <li class="nav-item">
-                <%= link_to "Sign up", new_user_registration_path,class: 'nav-link text-white' %>
+                <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-white' %>
               </li>
               <li class="nav-item">
-                <%= link_to "Log in", new_user_session_path,class: 'nav-link text-white' %>
+                <%= link_to "Log in", new_user_session_path, class: 'nav-link text-white' %>
               </li>
             <% end %>
             </ul>
@@ -58,14 +58,14 @@
       </nav>
     </header>
     
-    <main class="mb-auto">
+    <main>
       <%= yield %>
     </main>
     
-    <footer class="bg-white">
+    <footer>
       <div class='container mt-5'>
         <div class='row'>
-          <div class='mx-auto text-brak'>
+          <div class='mx-auto'>
             <p>CopyRight Infratop.inc</p>
           </div>
         </div>

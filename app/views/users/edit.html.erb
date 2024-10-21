@@ -3,7 +3,7 @@
   <div class="row">
     <table class="table table-striped">
       
-      <div class="col-lg-3">
+      <div class="col-md-3">
         <!--User 編集-->
         <h1>User info</h1>
         
@@ -18,9 +18,9 @@
           </p>
           <p>
             <label for="inputIntroduction">Introduction</label><br>
-            <%= f.text_field :introduction, autofocus: true, id:"inputIntroduction", placeholder:"説明"%>
+            <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"説明"%>
           </p>
-          <%= f.submit "Update User" %>
+          <%= f.submit "Update User", class: "btn btn-secondary" %>
           
         <% end %>
       </div>

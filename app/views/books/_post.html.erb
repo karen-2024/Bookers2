@@ -3,12 +3,12 @@
 
 <%= form_with model: book do |f| %>
   
-  <h4>title</h4>
+  <p>Title</p>
   <%= f.text_field :title %>
   
-  <h4>Opinion</h4>
+  <p>Opinion</p>
   <%= f.text_area :body %>
   <br>
-  <%= f.submit 'Create Book' %>
+  <%= f.submit 'Create Book', class: "btn btn-success" %>
   
 <% end %>

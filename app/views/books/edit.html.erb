@@ -3,7 +3,7 @@
   <div class="row">
     <table class="table table-striped">
       
-      <div class="col-lg-3">
+      <div class="mx-auto col-11 col-sm-10 col-m-8 col-xl-6">
         <!--Book 編集-->
         <h1>Editing Book</h1>
         
@@ -15,9 +15,10 @@
           <p>Opinion</p>
           <%= f.text_area :body %>
           <br>
-          <%= f.submit 'Update Book' %>
+          <%= f.submit 'Update Book', class: "btn btn-success" %>
         <% end %>
-          
+        
+        <br>
         <%= link_to "Show", book_path %> |
         <%= link_to "Back", '/books' %>
       </div>
