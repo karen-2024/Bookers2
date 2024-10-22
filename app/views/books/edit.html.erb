@@ -5,7 +5,18 @@
       
       <div class="mx-auto col-11 col-sm-10 col-m-8 col-xl-6">
         <!--Book 編集-->
-        <h1>Editing Book</h1>
+        <h2>Editing Book</h2>
+        
+        <!--エラーメッセージ-->
+        <% if @book.errors.any? %>
+          <h3><%= @book.errors.count %>error prohibited this obj from being saved:</h3>
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        
         
         <%= form_with model: @book do |f| %>
         

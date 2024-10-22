@@ -3,19 +3,23 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.user_id = current_user.id
-    @user.save
-    redirect_to user_path
+    if @user.save
+      redirect_to user_path
+    else
+      @books = Book.all
+      render :index
+    end
   end
   
   
   def show
     @user = User.find(params[:id])
-    @books = Book.all
+    @books = @user.books
   end
   
   def index
-    @user = User.all
-    @books = Book.all
+    @users = User.all
+    @user = current_user
   end
   
   def edit
@@ -24,15 +28,21 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path
+    if @user.update(user_params)
+      flash[:notice] = "You have created user successfully."
+      redirect_to user_path(@user.id)
+    else
+      @user=User.find(params[:id])
+      @user.update(user_params)
+      render :edit
+    end
   end
   
   
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image, :introduction)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
   
 end

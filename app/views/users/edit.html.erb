@@ -5,7 +5,18 @@
       
       <div class="col-md-3">
         <!--User 編集-->
-        <h1>User info</h1>
+        <h2>User info</h2>
+        
+        <!--エラーメッセージ-->
+        <% if @user.errors.any? %>
+          <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        
         
         <%= form_with model: @user do |f| %>
           <p>

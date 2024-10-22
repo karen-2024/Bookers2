@@ -4,16 +4,16 @@
     
     <div class="col-md-3">
       <!--カレントユーザー　詳細-->
-      
+      <%= render 'users/list', user: current_user %>
       
       <!--Book　新規投稿-->
       <%= render 'books/post', book: Book.new %>
     </div>
 
 
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <!--User　一覧-->
-      <h1>Users</h1>
+      <h2>Users</h2>
         
       <table class="table">
         <thead>
@@ -25,10 +25,10 @@
         </thead>
           
         <tbody>
-          <% @user.each do |user| %>
+          <% @users.each do |user| %>
             <tr>
               <td><%= image_tag user.get_profile_image(80,80) %></td>
-              <td><%= @user.name %></td>
+              <td><%= user.name %></td>
             
               <!--User 詳細ページ-->
               <td><%= link_to "Show", user_path(current_user.id) %></td>
