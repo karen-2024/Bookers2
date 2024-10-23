@@ -1,43 +1,41 @@
 
-<div class="container">
-  <div class="row">
-      
-      <div class="mx-auto col-sm-11 col-md-8 col-lg-6">
-        <!--User 編集-->
-        <h2>User info</h2>
-        
-        <!--エラーメッセージ-->
-        <% if @user.errors.any? %>
-          <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
-          <ul>
-            <% @user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
+<div class="row">
+ 
+  <div class="mx-auto col-sm-11 col-md-8 col-lg-5">
+    <!--User 編集-->
+    <h2>User info</h2>
+    
+    <!--エラーメッセージ-->
+    <% if @user.errors.any? %>
+      <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
-        
-        
-        <%= form_with model: @user do |f| %>
-          <div class="group">
-            <label for="user_name">Name</label><br>
-            <%= f.text_field :name, class: "form-control", id:"user_name" %>
-          </div>
-          
-          <div class="group">
-            <label for="user_image">Image</label><br>
-            <%= f.file_field :profile_image, accept: "image/*" %>
-          </div>
-          
-          <div class="group">
-            <label for="user_introduction">Introduction</label><br>
-            <%= f.text_area :introduction, class: "form-control", id:"user_introduction" %>
-          </div>
-          
-          <div class="group">
-            <%= f.submit "Update User", class: "btn btn-secondary" %>
-          </div>
-        <% end %>
+      </ul>
+    <% end %>
+    
+    
+     <%= form_with model: @user do |f| %>
+      <div class="group">
+        <label for="user_name">Name</label><br>
+        <%= f.text_field :name, class: "form-control", id:"user_name" %>
       </div>
       
+      <div class="group">
+        <label for="user_image">Image</label><br>
+        <%= f.file_field :profile_image, accept: "image/*" %>
+      </div>
+      
+      <div class="group">
+        <label for="user_introduction">Introduction</label><br>
+        <%= f.text_area :introduction, class: "form-control", id:"user_introduction" %>
+      </div>
+      
+      <div class="group">
+        <%= f.submit "Update User", class: "btn btn-secondary" %>
+      </div>
+    <% end %>
   </div>
+  
 </div>

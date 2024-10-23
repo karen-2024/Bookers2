@@ -1,6 +1,4 @@
 
-<div class="container">
-  
   <!--エラーメッセージ-->
   <% if @book.errors.any? %>
     <h3><%= @book.errors.count %>error prohibited this obj from being saved:</h3>
@@ -13,7 +11,6 @@
   
   <div class="row">
     
-    
     <div class="col-md-3">
       <!--カレントユーザー　詳細-->
       <%= render 'users/list', user: current_user %>
@@ -21,8 +18,7 @@
       <!--Book　新規投稿-->
       <%= render 'books/post', book: Book.new %>
     </div>
-
-
+    
     <div class="col-md-8 offset-md-1">
       <!--Book　一覧-->
       <h2>Books</h2>
@@ -52,6 +48,5 @@
         
       </table>
     </div>
-      
+    
   </div>
-</div>
