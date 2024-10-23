@@ -2,23 +2,27 @@
 <!--カレントユーザー　詳細-->
 <h2>User info</h2>
 
-  <p><%= image_tag user.get_profile_image(80,80) %></p>
+  <%= image_tag current_user.get_profile_image(100,100) %>
   
   <table class="table">
     <tbody>
       <tr></tr>
       <tr>
         <th>name</th>
-        <th><%= @user.name %></th>
+        <th><%= current_user.name %></th>
       </tr>
       <tr>
         <th>introduction</th>
-        <th><%= @user.introduction %></th>
+        <th><%= current_user.introduction %></th>
       </tr>
     </tbody>
   </table>
     
   <% if @user == current_user %>
-    <p><%= link_to "edit", edit_user_path(@user), class: "btn btn-outline-secondary" %></p>
+    <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-blok mb-3" do %>
+      <i class="fa-solid fa-user-gear"></i>
+    <% end %>
   <% end %>
+  
+  
   
