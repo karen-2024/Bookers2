@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  
+
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update]
+
   def create
     @user = User.new(user_params)
     @user.user_id = current_user.id
